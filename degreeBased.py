@@ -48,7 +48,7 @@ class DggGraph(object):
     def dgg_gen(self, Degree):
         Size = self.size
         """
-        利用度序列和一阶零模型生成合成图-------------上限很低
+        Generating synthetic maps using degree sequences and first-order zero models ------------- upper limit is very low
         :param Degree:
         :return:
         """
@@ -61,7 +61,7 @@ class DggGraph(object):
                 break
             remain_nodes = list(range(i+1, Size))
             prob = deg[i+1:]/np.sum(deg[i+1:])
-            # 需要确保deg[i]> prob中非0元素数
+            # Need to make sure deg[i] > number of non-zero elements in prob
             remain_num = Size-i-prob.tolist().count(0)
             if deg[i] > remain_num:
                 deg[i] = remain_num-1
