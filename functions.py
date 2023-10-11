@@ -143,7 +143,6 @@ def degree_dis_draw(oriDegdis, degDis):
 
 
 def line_3d(origin_degrees, eps1_degrees):
-    # 线
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
     ax.set_xlabel('degree (in log2)')
@@ -155,23 +154,6 @@ def line_3d(origin_degrees, eps1_degrees):
     ax.plot(xs=np.log2(np.array(range(len(eps1_degrees)))), ys=np.ones(len(eps1_degrees)) * 2, zs=eps1_degrees,
             c="blue", label='Block-HRG', linewidth=2.0)
 
-    # ax.plot(xs=np.array(range(len(origin_degrees))), ys=np.ones(len(origin_degrees)) * 1, zs=origin_degrees,
-    #         c="black", label='Ground truth', linewidth=2.0)
-    #
-    # ax.plot(xs=np.array(range(len(eps1_degrees))), ys=np.ones(len(eps1_degrees)) * 2, zs=eps1_degrees,
-    #         c="blue", label='Block-HRG', linewidth=2.0)
-
-
-    # ax.plot(xs=np.log10(np.array(range(len(santa_ldpgen_degrees)))), ys=np.ones(len(santa_ldpgen_degrees)) * 3,
-    #         zs=santa_ldpgen_degrees,
-    #         c="red", label='LDPGen', linewidth=2.0)
-    # ax.plot(xs=np.log10(np.array(range(len(santa_lf_degrees)))), ys=np.ones(len(santa_lf_degrees)) * 4, zs=santa_lf_degrees,
-    #         c="orange", label='LF-GDPR', linewidth=2.0)
-    # ax.plot(xs=np.log10(np.array(range(len(santa_rr_degrees)))), ys=np.ones(len(santa_rr_degrees)) * 5,
-    #         zs=santa_rr_degrees,
-    #         c="green", label='RR', linewidth=2.0)
-
-    # ax.axes.yaxis.set_visible(False)
     ax.axes.yaxis.set_ticklabels([])
 
     # ax.legend(loc='lower right')
