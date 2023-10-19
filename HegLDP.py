@@ -54,7 +54,7 @@ class Hegg(object):
             self.Degs.append(self.G.degree(i))
 
     def public_node_select(self, highPercent):
-        # degreeList = list(dict(self.G.degree()).values())  # 这里需要确定index是否从0开始，是否按照顺序
+        # degreeList = list(dict(self.G.degree()).values())  
         ids = np.array(list(dict(self.G.degree()).keys()))
         degrees = np.array(list(dict(self.G.degree()).values()))
         ind = np.argsort(ids)
@@ -135,7 +135,10 @@ class Hegg(object):
                 pertUnLink = UnLinkDeg+np.round(np.random.laplace(loc=0, scale=(1/epsilon)))
                 if pertUnLink < 0:
                     pertUnLink = 0
-                releasedDegs[node] = sum(pertDk)+pertUnLink         
+                releasedDegs[node] = sum(pertDk)+pertUnLink     
+
+                # Correction of degree values to minimize the effect of truncation
+                releasedDegs[node] = int(releasedDegs[node]+1/(2*epsilon))
 
             # Count the dk values of the current node and the current hop node
             for node in neighborList:  
