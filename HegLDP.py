@@ -137,8 +137,6 @@ class Hegg(object):
                     pertUnLink = 0
                 releasedDegs[node] = sum(pertDk)+pertUnLink     
 
-                # Correction of degree values to minimize the effect of truncation
-                releasedDegs[node] = int(releasedDegs[node]+1/(2*epsilon))
 
             # Count the dk values of the current node and the current hop node
             for node in neighborList:  
